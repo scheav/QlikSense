@@ -1,0 +1,17 @@
+/*--------- Font Setup ---------*/
+@font-face {
+    font-family: 'Pacifico', cursive;
+    src: url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+}
+
+body, html, .qv-object *, .bright.qv-panel-current-selections .values {
+  font-family: Pacifico !important;
+}
+
+.lui-icon, .wizard-button-icon, .lui-search__search-icon {
+  font-family: LUI icons !important;
+}
+
+.fa {
+  font-family: FontAwesome !important;
+}
