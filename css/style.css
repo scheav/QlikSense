@@ -1,17 +1,247 @@
+/*-------------------------- Variable ----------------------------------*/
+:root {
+  --table-col-header-bg-color: #FFFFFF;
+  --table-striped-color: #f7f7f7;
+  --footer-bg-color: #FEFCFF;
+  --border-radius: 3px;
+  --border-color: #F2F2F2;
+  --sheet-bg-color: #1e1e2f; /*#F0F0F0*/
+  --text-color: #393A3D;
+  --corp-color: #0077C5;
+  --subtitle-footnote-text-color: #4c4c4c;
+  --listbox-selected-bg-color: #21ABF6;
+}
+
+/*-----Public Resource --> https://github.intuit.com/CTG-Common/Library-CDN ------*/
+
 /*--------- Font Setup ---------*/
 @font-face {
-    font-family: 'Pacifico', cursive;
-    src: url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    font-family: AvenirNext-Regular;
+    src: url(https://lib.intuitcdn.net/fonts/AvenirNext/3.0/AvenirNextforINTUIT-Regular.1.woff) format("woff")
+}
+
+@font-face {
+    font-family: AvenirNext-Medium;
+    src: url(https://lib.intuitcdn.net/fonts/AvenirNext/3.0/AvenirNextforINTUIT-MediumIt.1.woff) format("woff")
 }
 
 body, html, .qv-object *, .bright.qv-panel-current-selections .values {
-  font-family: Pacifico !important;
+  font-family: AvenirNext-Regular !important;
+  color: var(--text-color);
 }
 
 .lui-icon, .wizard-button-icon, .lui-search__search-icon {
   font-family: LUI icons !important;
 }
-
 .fa {
   font-family: FontAwesome !important;
+}
+
+/*---------------------------Sheet---------------------------------*/
+.qvt-sheet {
+    background-color: var(--sheet-bg-color);
+}
+
+/*---------------------------Sheet Title---------------------------------*/
+.qv-panel-sheet .sheet-title-container {
+  padding: 0;
+  height: 36px;
+  background: var(--corp-color);
+  /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+}
+#sheet-title.sheet-grid {
+    margin: 0px 10px 0px 10px;
+}
+
+#sheet-title .sheet-title-text{
+    background-image: url(https://lib.intuitcdn.net/img/nav/checkball.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    color: #FFFFFF;
+    font-family: AvenirNext-Medium !important;
+}
+
+/*----------- Sheet Grid --------- */
+.sheet-grid .qv-gridcell {
+    border: none !important;
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+}
+
+.qv-inner-object {
+    background-color: #ffffff;
+    /*padding: 10px 10px 10px 10px;*/
+    border-radius: var(--border-radius);
+}
+
+/*-------------State Count Bar -------- */
+.qv-state-count-bar .state.selected, .qv-state-count-bar .state.locked {
+  background: var(--listbox-selected-bg-color);
+  
+}
+
+/*----------- Listbox selected item ----------*/
+.qv-listbox .serverLocked, .qv-listbox .serverSelected, .qv-listbox li.selected {
+  background-color: var(--listbox-selected-bg-color);
+  color:  #FFFFFF !important; /* Work in theme but not her */
+  border-bottom: 1px solid var(--border-color);
+}
+
+
+/*------------- Align left in all listbox -------*/
+.qv-listbox-text {
+  text-align: left !important;
+}
+
+/*----------- Panel current selection -----------*/
+.qv-panel-current-selections .qv-state-count-bar {
+  display: none;
+}
+.qv-collapsed-listbox .title-wrapper .title, .qv-panel-current-selections .name {
+    font-weight: 400 !important;
+}
+
+.bright.qv-panel-current-selections .item, .bright.qv-panel-current-selections .values :not(.item-locked) {
+    color: var(--text-color);
+}
+
+.bright.qv-panel-current-selections .wrap, .qv-panel-current-selections, .current-selections-item, .qv-panel-current-selections .item {
+    background: #FFFFFF !important;
+}
+
+.current-selections-item {
+    margin-top: 2px;
+}
+
+
+/*------------- icon color in current selection bar ------------*/
+/*
+.qv-panel-current-selections .lui-icon {
+  color: var(--corp-color);
+}
+
+.qv-panel-current-selections .lui-icon--remove {
+color: red;
+}
+.qv-panel-current-selections .lui-icon--selection-search {
+color: blue;
+}
+.qv-panel-current-selections .lui-icon--selections-back {
+color: green;
+}
+.qv-panel-current-selections .lui-icon--selections-forward {
+color: DarkMagenta;
+}
+.qv-panel-current-selections .lui-icon--clear-selections {
+color: LightSalmon;
+}
+*/
+
+/*---------------------------Hide Smart search, Selection tools, Insights advisor ---------------------------------*/
+.qv-panel-current-selections .qv-subtoolbar-button.toggle-button, .touch-on .qv-panel-current-selections .qv-subtoolbar-button.toggle-button {
+  display: none;
+}
+
+/*------------------------- Table Styling---------------------------*/
+.qv-object-content-container .qv-object-content table tr:nth-of-type(even) {
+  background: var(--table-striped-color);
+}
+
+/*---------------------------Object Footer---------------------------------*/
+.qv-object .qv-footer-wrapper {
+    background:var(--footer-bg-color) !important;
+    border-top: 1px solid #D9D9D9;
+    border-radius: 0px 0px var(--border-radius) var(--border-radius);
+}
+.qv-object-wrapper.has-footnote .qv-inner-object {
+  border-radius: var(--border-radius) var(--border-radius) 0px 0px;
+}
+
+/*------------ Subtitle, Footnote font color --------------*/
+.qv-object .qv-object-footnote, .qv-object .qv-object-subtitle {
+    color: var(--subtitle-footnote-text-color) !important;
+}
+
+/*--------- Confirm Selection --------*/
+.sel-toolbar-confirm {
+  background-color: var(--corp-color);
+  border-color: none;
+}
+.touch-off .sel-toolbar-list .sel-toolbar-confirm:focus:not(:active), .touch-off .sel-toolbar-list .sel-toolbar-confirm:hover:not(:active):not(:disabled) {
+  background-color: #0097E6;
+  color: #FFFFFF;
+  border: none;
+}
+
+.sel-toolbar-list .sel-toolbar-confirm:disabled, .sel-toolbar-list .sel-toolbar-confirm:disabled:hover {
+  background-color: #BABEC5;
+  border-color: #BABEC5;
+}
+
+.touch-off .sel-toolbar-list .sel-toolbar-confirm:focus:not(:active), .touch-off .sel-toolbar-list .sel-toolbar-confirm:hover:not(:active) {
+  background-color: #BABEC5;
+  color: #fff;
+}
+
+/*---------------- Object Hover: Take snapshot, Exploration menu, Full screen ----------------*/
+.touch-off .qv-object-nav>a:hover, .touch-off .qv-object-nav.zero-top>a:hover {
+  color: #0097E6;
+}
+
+.qv-object-nav>a, .qv-object-nav.zero-top>a {
+  color: var(--corp-color);
+  /*display: none;*/ /* Hide all Take snapshot, Exploration menu, Full screen*/
+}
+
+/*-------------------------Straight Table Styling---------------------------*/
+.qv-st {
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+}
+.qv-st-header .qv-st-total-cell {
+  border-bottom: 1px solid #CCCCCC;
+}
+.qv-st-header-cell:not(.qv-st-total-cell) {
+  font-weight: bold;
+  background-color: var(--table-col-header-bg-color);
+}
+.qv-object-content table tr:nth-of-type(even) {
+  background: var(--table-striped-color) !important;
+}
+.qv-st-data-cell-null-value {
+  background: none;
+  font-size: 0px;
+}
+.qv-st-data-cell.qv-st-data-cell-selected-highlighted, .qv-st-data-cell.qv-st-data-cell-selected {
+  background-color: var(--listbox-selected-bg-color);
+  border-bottom: 1px solid #FFFFFF;
+  color: #fff;
+}
+
+/*---------------Pivot Table Styling ----------------- */
+.qv-pt .cell.left-meta.empty.bottom-meta, .qv-pt .cell.top.empty.bottom-meta {
+  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+  background: #FFFFFF !important;
+}
+.qv-pt .cell.null-value {
+  background: none;
+  font-size: 0px;
+}
+/*
+.qv-pt .cell {
+  border: 1px solid #F2F2F2;
+}
+*/
+.qv-pt .cell.header.top {
+  font-weight: bold;
+  background-color: var(--table-col-header-bg-color);
+  border-bottom: 1px solid var(--border-color);
+}
+.qv-pt .cell.selected-highlighted, .qv-pt .cell.selected {
+  background-color: var(--listbox-selected-bg-color) !important;
+}
+.qv-pt .cell.empty.left.selected, .qv-pt .cell.empty.left.selected-highlighted, .qv-pt .cell.left.selected, .qv-pt .cell.left.selected-highlighted, .qv-pt .cell.parent.left.selected, .qv-pt .cell.parent.left.selected-highlighted {
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
 }
